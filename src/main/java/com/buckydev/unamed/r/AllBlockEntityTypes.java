@@ -1,6 +1,7 @@
 package com.buckydev.unamed.r;
 
 import com.buckydev.unamed.Unamed;
+import com.buckydev.unamed.blocks.hello.HelloBlockEntity;
 import com.buckydev.unamed.blocks.test.TestBlockEntity;
 import java.util.function.Supplier;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -14,9 +15,16 @@ public class AllBlockEntityTypes {
 
 
     public static final Supplier<BlockEntityType<TestBlockEntity>> TEST_BLOCK_ENTITY = BLOCK_ENTITY_TYPE.register(
-            "block_entity", () -> new BlockEntityType<>(
+            "test_entity", () -> new BlockEntityType<>(
                     TestBlockEntity::new,
                     AllBlocks.TEST_BLOCK.get()
             ));
+
+    public static final Supplier<BlockEntityType<HelloBlockEntity>> HELLO_BLOCK_ENTITY = BLOCK_ENTITY_TYPE.register(
+            "hello_entity", () -> new BlockEntityType<>(
+                    HelloBlockEntity::new,
+                    AllBlocks.HELLO_BLOCK.get()
+            )
+    );
 
 }

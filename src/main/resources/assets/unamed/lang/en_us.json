@@ -1,5 +1,10 @@
 {
   "itemGroup.unamed": "Example Mod Tab",
+  "item.unamed.example_item": "Example Item",
   "block.unamed.example_block": "Example Block",
-  "item.unamed.example_item": "Example Item"
+  "item.unamed.example_block": "Example Block",
+  "block.unamed.test_block": "Test Block",
+  "item.unamed.test_block": "Test Block",
+  "item.unamed.hello_block": "Hello Block",
+  "block.unamed.hello_block": "Hello Block"
 }

@@ -69,6 +69,7 @@ public class Unamed {
         @SubscribeEvent
         public static void gatherDataClient(GatherDataEvent.Client event) {
             event.createProvider(ModModelProvider::new);
+//            event.createProvider(ModLangProvider::new);
         }
     }
 

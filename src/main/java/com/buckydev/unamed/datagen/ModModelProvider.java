@@ -4,16 +4,12 @@ import com.buckydev.unamed.Unamed;
 import com.buckydev.unamed.Utils;
 import com.buckydev.unamed.r.AllBlocks;
 import com.buckydev.unamed.r.AllItems;
-import java.util.Collections;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
-import net.minecraft.client.renderer.item.BlockModelWrapper;
-import net.minecraft.client.renderer.item.ClientItem;
 import net.minecraft.data.PackOutput;
 
 public class ModModelProvider extends ModelProvider {
@@ -25,7 +21,6 @@ public class ModModelProvider extends ModelProvider {
     @Override
     protected void registerModels(BlockModelGenerators blockModels,
             ItemModelGenerators itemModels) {
-
 
 //        itemModels.itemModelOutput.register(
 //                AllItems.EXAMPLE_ITEM.get(),
@@ -52,14 +47,17 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createHorizontallyRotatedBlock(AllBlocks.TEST_BLOCK.get(),
                 TexturedModel.ORIENTABLE_ONLY_TOP.updateTexture(
-                        mapping ->
-                                mapping.put(TextureSlot.TOP, Utils.loc("block/test/terminal_top"))
-                                        .put(TextureSlot.BOTTOM,
-                                                Utils.loc("block/test/terminal_bottom"))
-                                        .put(TextureSlot.SIDE,
-                                                Utils.loc("block/test/terminal_side"))
-                                        .put(TextureSlot.FRONT,
-                                                Utils.loc("block/test/terminal_front_on"))
-                ));
+                        mapping -> mapping.put(TextureSlot.TOP,
+                                        Utils.loc("block/test/terminal_top"))
+                                .put(TextureSlot.BOTTOM, Utils.loc("block/test/terminal_bottom"))
+                                .put(TextureSlot.SIDE, Utils.loc("block/test/terminal_side"))
+                                .put(TextureSlot.FRONT,
+                                        Utils.loc("block/test/terminal_front_on"))));
+        blockModels.createTrivialBlock(AllBlocks.HELLO_BLOCK.get(),
+                TexturedModel.CUBE_TOP_BOTTOM.updateTexture(
+                        mapping -> mapping.put(TextureSlot.TOP,
+                                        Utils.loc("block/hello/battery_top"))
+                                .put(TextureSlot.BOTTOM, Utils.loc("block/hello/battery_bottom"))
+                                .put(TextureSlot.SIDE, Utils.loc("block/hello/battery_side"))));
     }
 }

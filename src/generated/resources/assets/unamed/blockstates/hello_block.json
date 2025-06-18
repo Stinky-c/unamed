@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "unamed:block/hello_block"
+    }
+  }
+}

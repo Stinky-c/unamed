@@ -17,6 +17,9 @@ public class AllItems {
     public static final DeferredItem<BlockItem> TEST_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(
             "test_block", AllBlocks.TEST_BLOCK);
 
+    public static final DeferredItem<BlockItem> HELLO_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(
+            "hello_block", AllBlocks.HELLO_BLOCK);
+
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item",
             new Item.Properties().food(
                     new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f)
