@@ -1,4 +1,4 @@
-// 1.21.5	2025-06-17T21:42:19.8416165	Model Definitions - unamed
+// 1.21.5	2025-06-18T10:38:47.456251	Model Definitions - unamed
 025320a0b54a3ab79f3d4d342b334bacdce335ef assets/unamed/blockstates/example_block.json
 e4cbf23b527b67a19165fb0a3937487ae1edbff1 assets/unamed/blockstates/hello_block.json
 f7ef9dc675dbc7819ce4a0b24b627080151eb763 assets/unamed/blockstates/test_block.json
@@ -7,6 +7,6 @@ f7ef9dc675dbc7819ce4a0b24b627080151eb763 assets/unamed/blockstates/test_block.js
 d1d79d569af81e34ba276b98e1fd863d40959550 assets/unamed/items/hello_block.json
 6c0f9b919895d5c118e794ef81887ca653692591 assets/unamed/items/test_block.json
 fca04921665f2dc0eab711422dc62df25b39b904 assets/unamed/models/block/example_block.json
-658759e8b31aceddc3fbf72bb4409da5d1a1a3c6 assets/unamed/models/block/hello_block.json
-5fdee2739383dc76e831b58e4aca259ec2254878 assets/unamed/models/block/test_block.json
+404bea0578020fc2a628254cf1cbcfc8e7ce7ed0 assets/unamed/models/block/hello_block.json
+386007e3f452542f760edb8bc95b1f38393f5b62 assets/unamed/models/block/test_block.json
 c94f1b5665a5adeca8887a55cb8c62c43af2960b assets/unamed/models/item/example_item.json

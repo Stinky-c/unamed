@@ -1,8 +1,9 @@
 {
-  "parent": "minecraft:block/orientable",
+  "parent": "minecraft:block/orientable_with_bottom",
   "textures": {
-    "front": "unamed:block/test/terminal_front_on",
-    "side": "unamed:block/test/terminal_side",
-    "top": "unamed:block/test/terminal_top"
+    "bottom": "unamed:block/test_block/bottom",
+    "front": "unamed:block/test_block/front",
+    "side": "unamed:block/test_block/side",
+    "top": "unamed:block/test_block/top"
   }
 }

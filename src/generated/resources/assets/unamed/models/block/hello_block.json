@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "bottom": "unamed:block/hello/battery_bottom",
-    "side": "unamed:block/hello/battery_side",
-    "top": "unamed:block/hello/battery_top"
+    "bottom": "unamed:block/hello_block/bottom",
+    "side": "unamed:block/hello_block/side",
+    "top": "unamed:block/hello_block/top"
   }
 }
