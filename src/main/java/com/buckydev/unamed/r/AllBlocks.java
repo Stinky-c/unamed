@@ -3,26 +3,41 @@ package com.buckydev.unamed.r;
 import com.buckydev.unamed.Unamed;
 import com.buckydev.unamed.blocks.hello.HelloBlock;
 import com.buckydev.unamed.blocks.test.TestBlock;
+import com.tterrag.registrate.Registrate;
+import com.tterrag.registrate.util.entry.BlockEntry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class AllBlocks {
+    private static final Registrate REGISTRATE = Unamed.registrate();
 
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(
-            Unamed.MODID);
+    public static final BlockEntry<Block> EXAMPLE_BLOCK = REGISTRATE
+            .object("example_block").block(Block::new).simpleItem().register();
 
+    public static final BlockEntry<TestBlock> TEST_BLOCK = REGISTRATE
+            .object("test_block").block(TestBlock::new).blockstate((ctx, prov) -> {
+                Block block = ctx.getEntry();
+                prov.horizontalBlock(block, prov.models()
+                        .orientableWithBottom(ctx.getName(), getSuffixedLocation(block, "side"),
+                                getSuffixedLocation(block, "front"),
+                                getSuffixedLocation(block, "bottom"),
+                                getSuffixedLocation(block, "top")));
+            }).simpleItem().register();
 
-    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock(
-            "example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+    public static final BlockEntry<HelloBlock> HELLO_BLOCK = REGISTRATE
+            .object("hello_block").block(HelloBlock::new).blockstate((ctx, prov) -> {
+                Block block = ctx.getEntry();
+                prov.simpleBlock(block, prov.models()
+                        .cubeBottomTop(ctx.getName(), getSuffixedLocation(block, "side"),
+                                getSuffixedLocation(block, "bottom"),
+                                getSuffixedLocation(block, "top")));
+            }).simpleItem().register();
 
-    public static final DeferredBlock<Block> TEST_BLOCK = BLOCKS.registerBlock("test_block",
-            TestBlock::new, BlockBehaviour.Properties.of());
+    public static ResourceLocation getSuffixedLocation(Block block, String suffix) {
+        ResourceLocation location = BuiltInRegistries.BLOCK.getKey(block);
+        return location.withPath(p -> "block/" + p + "/" + suffix);
+    }
 
-    public static final DeferredBlock<Block> HELLO_BLOCK = BLOCKS.registerBlock("hello_block",
-            HelloBlock::new, BlockBehaviour.Properties.of());
-
-
+    public static void register() {}
 }

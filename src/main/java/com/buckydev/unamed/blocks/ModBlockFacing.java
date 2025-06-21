@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 public abstract class ModBlockFacing extends Block {
-
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public ModBlockFacing(BlockBehaviour.Properties properties) {
@@ -27,9 +26,9 @@ public abstract class ModBlockFacing extends Block {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         // Get the direction the facing player is facing if they are crouching else get direction facing the player
         Direction direction = (context.getPlayer() != null && context.getPlayer().isCrouching())
-                ? context.getHorizontalDirection() : context.getHorizontalDirection().getOpposite();
+                ? context.getHorizontalDirection()
+                : context.getHorizontalDirection().getOpposite();
 
         return defaultBlockState().setValue(FACING, direction);
     }
-
 }

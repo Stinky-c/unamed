@@ -10,11 +10,11 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class AllBlockTypes {
-
     public static final DeferredRegister<MapCodec<? extends Block>> REGISTRAR = DeferredRegister.create(
             BuiltInRegistries.BLOCK_TYPE, Unamed.MODID);
 
     public static final Supplier<MapCodec<TestBlock>> TEST_BLOCK_CODEC = REGISTRAR.register(
             "test_block", () -> BlockBehaviour.simpleCodec(TestBlock::new));
 
+    public static void register() {}
 }
