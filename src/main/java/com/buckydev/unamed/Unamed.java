@@ -1,5 +1,6 @@
 package com.buckydev.unamed;
 
+import com.buckydev.unamed.blocks.test.TestBlockEntity;
 import com.buckydev.unamed.r.AllBlockEntityTypes;
 import com.buckydev.unamed.r.AllBlockTypes;
 import com.buckydev.unamed.r.AllBlocks;
@@ -14,6 +15,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
@@ -30,6 +32,8 @@ public class Unamed {
         modEventBus.addListener(this::commonSetup);
 
         NeoForge.EVENT_BUS.register(this);
+
+        modEventBus.addListener(this::registerCapabilities);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -50,6 +54,11 @@ public class Unamed {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         LOGGER.info("HELLO from server starting");
+    }
+
+    public void registerCapabilities(RegisterCapabilitiesEvent event) {
+        // Coming soon :tm: to Registrate - https://github.com/IThundxr/Registrate/blob/1304409dd4d8ba9b4d25a76e3eb0c7e128bf140e/src/main/java/com/tterrag/registrate/builders/BlockEntityBuilder.java#L143
+        TestBlockEntity.registerCapabilities(event);
     }
 
     /**

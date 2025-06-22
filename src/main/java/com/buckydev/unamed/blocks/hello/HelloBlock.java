@@ -1,11 +1,11 @@
 package com.buckydev.unamed.blocks.hello;
 
+import com.buckydev.unamed.blocks.IModEntityBlock;
 import com.buckydev.unamed.blocks.ModBlockTopBottom;
-import com.buckydev.unamed.blocks.ModEntityBlock;
 import com.buckydev.unamed.r.AllBlockEntityTypes;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
-public class HelloBlock extends ModBlockTopBottom implements ModEntityBlock<HelloBlockEntity> {
+public class HelloBlock extends ModBlockTopBottom implements IModEntityBlock<HelloBlockEntity> {
     public HelloBlock(Properties p) {
         super(p);
     }
@@ -13,5 +13,10 @@ public class HelloBlock extends ModBlockTopBottom implements ModEntityBlock<Hell
     @Override
     public BlockEntityType<? extends HelloBlockEntity> getBlockEntityType() {
         return AllBlockEntityTypes.HELLO_BLOCK_ENTITY.get();
+    }
+
+    @Override
+    public Class<HelloBlockEntity> getBlockEntityClass() {
+        return HelloBlockEntity.class;
     }
 }
