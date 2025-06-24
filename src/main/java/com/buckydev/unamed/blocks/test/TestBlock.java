@@ -37,16 +37,26 @@ public class TestBlock extends ModBlockFacing implements IModEntityBlock<TestBlo
             BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         var be = (TestBlockEntity) level.getBlockEntity(pos);
 
-        if (heldStack.isEmpty() && player.isCrouching()) {
-            be.HANDLER.setStackInSlot(0, ItemStack.EMPTY);
-        }
-
-        if (heldStack.isEmpty()) {
+        if (!(be instanceof TestBlockEntity)) {
             return ItemInteractionResult.FAIL;
         }
 
-        be.HANDLER.setStackInSlot(0, heldStack);
-        return ItemInteractionResult.SUCCESS;
+        if (heldStack.isEmpty() || player.isCrouching()) {
+            ItemStack blockStack = be.HANDLER.getStackInSlot(0);
+            be.HANDLER.setStackInSlot(0, ItemStack.EMPTY);
+            if (!player.addItem(
+                    blockStack.copy())) { // Give item to player directly, spawn at location if inventory is full
+                player.spawnAtLocation(blockStack.copy());
+            }
+            return ItemInteractionResult.SUCCESS;
+
+        } else if (!heldStack.isEmpty() && be.HANDLER.getStackInSlot(0)
+                .isEmpty()) { // inserting item when holding item and handler empty
+                    ItemStack newStack = heldStack.consumeAndReturn(1, player);
+                    be.HANDLER.setStackInSlot(0, newStack);
+                    return ItemInteractionResult.SUCCESS;
+                }
+        return ItemInteractionResult.FAIL;
     }
 
     @Override
