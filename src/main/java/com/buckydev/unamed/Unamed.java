@@ -6,6 +6,8 @@ import com.buckydev.unamed.r.AllBlocks;
 import com.buckydev.unamed.r.AllCreativeTabs;
 import com.buckydev.unamed.r.AllDataAttachments;
 import com.buckydev.unamed.r.AllItems;
+import com.buckydev.unamed.r.AllRecipeSerializers;
+import com.buckydev.unamed.r.AllRecipesTypes;
 import com.mojang.logging.LogUtils;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
@@ -42,6 +44,8 @@ public class Unamed {
         AllBlockTypes.register();
         AllItems.register();
         AllDataAttachments.register(modBus);
+        AllRecipesTypes.register(modBus);
+        AllRecipeSerializers.register(modBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
